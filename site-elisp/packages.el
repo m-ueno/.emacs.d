@@ -1,8 +1,8 @@
 (require 'package)
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("user42" . "http://download.tuxfamily.org/user42/elpa/packages/"))
+;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (add-to-list 'package-archives '("user42" . "http://download.tuxfamily.org/user42/elpa/packages/"))
 
 (package-initialize)
 
@@ -10,6 +10,7 @@
 (eval-when-compile
   (require 'use-package))
 
+;; hide minor-mode from mode line
 (package-install 'diminish)
 (use-package use-package
   :init
@@ -116,12 +117,14 @@
     (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
     (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)))
 
+(package-install 'adoc-mode)
+
 (package-install 'coffee-mode)
 (use-package coffee-mode
   :mode
   (("\\.coffee$" . coffee-mode)
    ("\\.Cakefile$" . coffee-mode))
-  
+
   :init
   (add-hook 'coffee-mode-hook
             (lambda ()
@@ -188,7 +191,12 @@
     (require 'helm-config)
     (helm-mode 1)
     (define-key helm-map (kbd "C-h") 'delete-backward-char)
-    (define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)))
+    (define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
+
+    (global-set-key "\M-x" 'helm-M-x)
+    (global-set-key (kbd "C-x C-f") 'helm-find-files)
+    (global-set-key (kbd "C-x r") 'helm-recentf)
+    ))
 
 (package-install 'company)
 (use-package company :config (add-hook 'after-init-hook 'global-company-mode))
@@ -219,6 +227,6 @@
 ;; Emacs built-in
 (use-package uniquify :config (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
 
-;; M-x woman
-(package-install 'woman)
-(use-package woman :config (setq woman-cache-filename (expand-file-name "~/.emacs.d/woman-cache")))
+;; ;; M-x woman
+;; (package-install 'woman)
+;; (use-package woman :config (setq woman-cache-filename (expand-file-name "~/.emacs.d/woman-cache")))
