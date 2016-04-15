@@ -115,7 +115,7 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8-unix)
 (setq file-name-coding-system 'utf-8-mac)
-(set-clipboard-coding-system 'utf-8-unix)
+; (set-clipboard-coding-system 'utf-8-unix)
 (setq default-process-coding-system '(undecided . utf-8-unix))
 
 (dolist (h '(emacs-lisp-mode-hook
