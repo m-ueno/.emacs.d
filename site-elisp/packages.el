@@ -6,6 +6,8 @@
 
 (package-initialize)
 
+;; (package-refresh-contents)
+(package-install 'paradox)
 (package-install 'use-package)
 (eval-when-compile
   (require 'use-package))
@@ -156,6 +158,12 @@
    ("\\.mkdn$" . markdown-mode)
    ("\\.md$" . markdown-mode)))
 
+(package-install 'git-gutter)
+(use-package git-gutter
+  :config
+  (progn
+    (global-git-gutter-mode t)))
+
 (package-install 'ggtags)
 (use-package ggtags
   :commands ggtags-mode
@@ -208,6 +216,7 @@
     (windmove-default-keybindings)
     (setq windmove-wrap-around t)))
 
+(defun _skip ()
 (package-install 'tty-format)
 (use-package tty-format :config (add-hook 'find-file-hooks 'tty-format-guess))
 
@@ -223,9 +232,12 @@
       (interactive)
       (let ((inhibit-read-only t))
         (ansi-color-apply-on-region (point-min) (point-max))))))
+)
 
 ;; Emacs built-in
-(use-package uniquify :config (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
+(use-package uniquify
+  :config
+  (setq uniquify-buffer-name-style 'post-forward-angle-brackets))
 
 ;; ;; M-x woman
 ;; (package-install 'woman)
