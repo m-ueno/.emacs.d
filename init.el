@@ -7,4 +7,4 @@
 (load "3rd-parties")
 (load "configs")
 (load "commands")
-; (load "custom")
+(load "custom")
