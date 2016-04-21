@@ -159,8 +159,9 @@
 ;; monokai-like
 (load-theme 'wombat)
 
-(setq my-font-family "Ricty Diminished")
-(setq my-font-family "源ノ角ゴシック Code JP R")
+; (setq my-font-family "Ricty Diminished")
+; (setq my-font-family "源ノ角ゴシック Code JP R")
+(setq my-font-family "Source Code Pro")
 ;; tips: scaleup with C-x C-+
 (if window-system
     (progn

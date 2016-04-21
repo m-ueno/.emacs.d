@@ -3,12 +3,14 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 ;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 ;; (add-to-list 'package-archives '("user42" . "http://download.tuxfamily.org/user42/elpa/packages/"))
-
 (package-initialize)
 
-;; (package-refresh-contents)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 (package-install 'paradox)
-(package-install 'use-package)
+
 (eval-when-compile
   (require 'use-package))
 
@@ -226,9 +228,8 @@
     (windmove-default-keybindings)
     (setq windmove-wrap-around t)))
 
-(defun _skip ()
-(package-install 'tty-format)
-(use-package tty-format :config (add-hook 'find-file-hooks 'tty-format-guess))
+;; (package-install 'tty-format)
+;; (use-package tty-format :config (add-hook 'find-file-hooks 'tty-format-guess))
 
 (package-install 'ansi-color)
 (use-package ansi-color
