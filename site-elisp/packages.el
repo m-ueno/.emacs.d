@@ -243,7 +243,6 @@
       (interactive)
       (let ((inhibit-read-only t))
         (ansi-color-apply-on-region (point-min) (point-max))))))
-)
 
 ;; Emacs built-in
 (use-package uniquify
