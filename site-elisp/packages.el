@@ -160,11 +160,12 @@
    ("\\.mkdn$" . markdown-mode)
    ("\\.md$" . markdown-mode)))
 
-(package-install 'git-gutter)
-(use-package git-gutter
+(package-install 'git-gutter-fringe+)
+(use-package git-gutter-fringe+
   :config
   (progn
-    (global-git-gutter-mode t)))
+    (global-git-gutter+-mode)
+    (set-face-foreground 'git-gutter+-modified "yellow")))
 
 (package-install 'ggtags)
 (use-package ggtags
