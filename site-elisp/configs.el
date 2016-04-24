@@ -170,7 +170,7 @@
       (set-fontset-font
        (frame-parameter nil 'font)
        'japanese-jisx0208
-       (font-spec :family my-font-family))
+       (font-spec :family my-font-family))))
 
 ;     (set-fontset-font "fontset-default" 'japanese-jisx0208 '("源ノ角ゴシック Code JP R" . "iso10646-*"))
       ;; (setq default-frame-alist
@@ -184,7 +184,6 @@
       ;;              ;; '(alpha . 65)
       ;;              )
       ;;        default-frame-alist))
-))
 
 ;;; conf-tips.el --- default function (short configure, just setq)
 

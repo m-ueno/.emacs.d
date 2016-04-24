@@ -162,9 +162,11 @@
 
 (package-install 'git-gutter-fringe+)
 (use-package git-gutter-fringe+
+  :diminish "Fr+"
   :config
   (progn
     (global-git-gutter+-mode)
+    (set-face-foreground 'git-gutter+-deleted "salmon")
     (set-face-foreground 'git-gutter+-modified "yellow")))
 
 (package-install 'ggtags)
