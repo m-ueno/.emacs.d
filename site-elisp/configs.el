@@ -336,6 +336,10 @@
  	    (font-lock-add-keywords nil
  				    '(("(\\|)" . 'paren-face)))))
 
+;; org-mode
+(setq org-html-head-extra
+      "<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\" />")
+(setq org-export-with-section-numbers nil)
 ;; ----------------------------------------------------------------
 ;; key binding
 ;; ----------------------------------------------------------------
