@@ -158,13 +158,23 @@
   :mode
   (("\\.markdown$" . markdown-mode)
    ("\\.mkdn$" . markdown-mode)
-   ("\\.md$" . markdown-mode)))
+   ("\\.md$" . markdown-mode))
+  :config
+  (progn
+    (if (eq (getenv "COMPUTERNAME") "TWOTOP")
+	(setq markdown-command (shell-quote-argument "C:/Program Files/nodejs/mdown")))
+    (setq markdown-xhtml-header-content
+	  "<link href=\"http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\" rel=\"stylesheet\" />
+<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\" />"
+	  )))
 
 (package-install 'git-gutter-fringe+)
 (use-package git-gutter-fringe+
+  :diminish "Fr+"
   :config
   (progn
     (global-git-gutter+-mode)
+    (set-face-foreground 'git-gutter+-deleted "salmon")
     (set-face-foreground 'git-gutter+-modified "yellow")))
 
 (package-install 'ggtags)

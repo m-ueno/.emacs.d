@@ -170,7 +170,7 @@
       (set-fontset-font
        (frame-parameter nil 'font)
        'japanese-jisx0208
-       (font-spec :family my-font-family))
+       (font-spec :family my-font-family))))
 
 ;     (set-fontset-font "fontset-default" 'japanese-jisx0208 '("源ノ角ゴシック Code JP R" . "iso10646-*"))
       ;; (setq default-frame-alist
@@ -184,7 +184,6 @@
       ;;              ;; '(alpha . 65)
       ;;              )
       ;;        default-frame-alist))
-))
 
 ;;; conf-tips.el --- default function (short configure, just setq)
 
@@ -325,7 +324,22 @@
          )
        auto-insert-alist))
 
+;; elisp括弧を薄くする
+(defface paren-face
+  '((((class color) (background dark))
+     (:foreground "grey20"))
+    (((class color) (background light))
+     (:foreground "grey80")))
+  "Face used to dim parentheses.")
+(add-hook 'emacs-lisp-mode-hook
+ 	  (lambda ()
+ 	    (font-lock-add-keywords nil
+ 				    '(("(\\|)" . 'paren-face)))))
 
+;; org-mode
+(setq org-html-head-extra
+      "<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\" />")
+(setq org-export-with-section-numbers nil)
 ;; ----------------------------------------------------------------
 ;; key binding
 ;; ----------------------------------------------------------------
