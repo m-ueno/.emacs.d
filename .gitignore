@@ -1,7 +1,9 @@
-abbrev_defs
 auto-saves-alist/
 backups/
 elpa/
+url/
+
+abbrev_defs
 recentf
 
 *#
